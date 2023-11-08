@@ -1,0 +1,119 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Arial';
+    min-width: 320px;
+}
+$mainColor: rgb(39, 89, 255);
+.main 
+{
+    margin-bottom: 100px;
+    &__input-content
+    {
+      
+        border:1px solid rgba(187, 187, 187, 0.856);
+        border-radius:4px;
+   
+        max-width: 500px;
+        padding: 30px 15px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+       
+       & input{
+    margin-bottom: 12px;
+    width: 100%;
+        display: block;
+        outline: none;
+        border:1px solid rgba(128, 128, 128, 0.856);
+        padding: 10px 0 10px 20px;
+        border-radius: 4px;
+       } 
+       margin-bottom: 100px;
+       & label
+       {
+        display: block;
+        margin-bottom: 7px;
+       }
+    }
+    &__taskContainer 
+    {
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: 0 auto;
+    
+        height: fit-content;
+        
+    }
+    
+}
+.danger 
+{
+    border: 1px solid red !important;
+
+}
+#ToDoSumbit
+{
+    padding: 10px 15px;
+    background-color: rgb(0, 60, 255);
+    color:white;
+    border:none;
+    border-radius:4px;
+    &:active
+    {
+        box-shadow: 0 0 0 1px rgb(201, 201, 201); /* Цвет тени и размер тени (включая радиус углов) */
+    }
+}
+.tasks
+{
+ 
+    margin-bottom: 20px;
+    border:1px solid rgba(187, 187, 187, 0.856);
+    border-radius:4px;
+    width: 100%;
+    min-height: 200px;
+    height: fit-content;
+    padding: 20px;
+    &:last-child
+    {
+        margin-bottom: 0;
+    }
+&__delete 
+{
+
+  
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(199, 16, 16);
+    color:white;
+    border:none;
+    border-radius:4px;
+    margin-left: auto;
+    &:active
+    {
+        box-shadow: 0 0 0 1px rgb(201, 201, 201); /* Цвет тени и размер тени (включая радиус углов) */
+    }
+}
+&__title 
+{
+    margin-bottom: 25px;
+    word-wrap: break-word;
+}
+&__quote
+{
+    word-wrap: break-word;
+}
+}
+.form 
+{
+    width: 100%;
+}
+h1 
+{
+    margin-bottom: 30px;
+}
