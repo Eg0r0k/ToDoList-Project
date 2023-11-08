@@ -81,8 +81,9 @@ ToDoDeleteAll.addEventListener("click", () => {
 
 
 function refresh() {
-
-
+  const headerElement = container.querySelector('h1[role="text"]')
+  container.innerHTML = ''; // Clear the container
+  container.appendChild(headerElement)
   for (let key in localStorage) {
     if (localStorage.hasOwnProperty(key)) {
       const ToDoAll = JSON.parse(localStorage.getItem(key));
