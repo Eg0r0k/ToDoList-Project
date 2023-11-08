@@ -76,7 +76,7 @@ ToDoSumbit.addEventListener("click", () => {
 
 ToDoDeleteAll.addEventListener("click", () => {
   localStorage.clear();
-
+  refresh();
 });
 
 
