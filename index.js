@@ -76,12 +76,12 @@ ToDoSumbit.addEventListener("click", () => {
 
 ToDoDeleteAll.addEventListener("click", () => {
   localStorage.clear();
-  container.innerHTML = "";
+
 });
 
 
 function refresh() {
-  container.innerHTML = ''; // Clear the container
+
 
   for (let key in localStorage) {
     if (localStorage.hasOwnProperty(key)) {
