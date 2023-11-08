@@ -5,7 +5,7 @@ const ToDoDeleteAll = document.getElementById("ToDoDeleteAll");
 
 const container = document.querySelector(".main__taskContainer");
 
-function createToDoElement({ title, quote, id }) {
+function createToDoElement({ title, quote, id, done }) {
   const ToDo = document.createElement("div");
   const ToDoNum = id;
   ToDo.classList.add("main__tasks", "tasks", ToDoNum);
@@ -22,16 +22,28 @@ function createToDoElement({ title, quote, id }) {
   ToDoDelete.textContent = "Удалить заметку";
   ToDoDelete.classList.add("tasks__delete");
 
+  const ToDoDone = document.createElement("button")
+  ToDoDone.textContent = "Сделано"
+  ToDoDone.classList.add("tasks__done")
+  if(done == true)
+  {
+    ToDo.classList.add("tasks__finished")
+    ToDoDone.textContent = "Отмена"
+  }
   ToDo.appendChild(ToDoTitle);
   ToDo.appendChild(ToDoQuote);
   ToDo.appendChild(ToDoDelete);
-
+  ToDo.appendChild(ToDoDone)
   ToDoDelete.addEventListener("click", () => {
-    console.log(id);
     ToDo.remove();
     localStorage.removeItem(id);
   });
-
+  ToDoDone.addEventListener("click",()=>
+  {
+    ToDo.done = !done
+    localStorage.setItem(id, JSON.stringify({title,quote,id,done:!done}))
+    refresh();
+  })
   return ToDo;
 }
 
@@ -55,6 +67,7 @@ ToDoSumbit.addEventListener("click", () => {
     title: title,
     quote: quote,
     id: randomId,
+    done: false
   };
 
   localStorage.setItem(ToDo.id, JSON.stringify(ToDo));
@@ -66,11 +79,18 @@ ToDoDeleteAll.addEventListener("click", () => {
   container.innerHTML = "";
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+
+function refresh() {
+  container.innerHTML = ''; // Clear the container
+
   for (let key in localStorage) {
     if (localStorage.hasOwnProperty(key)) {
       const ToDoAll = JSON.parse(localStorage.getItem(key));
       container.appendChild(createToDoElement(ToDoAll));
     }
   }
-});
+}
+
+// ... (your existing code)
+
+document.addEventListener("DOMContentLoaded", refresh);

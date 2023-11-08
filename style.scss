@@ -72,7 +72,7 @@ $mainColor: rgb(39, 89, 255);
 }
 .tasks
 {
- 
+    
     margin-bottom: 20px;
     border:1px solid rgba(187, 187, 187, 0.856);
     border-radius:4px;
@@ -95,10 +95,39 @@ $mainColor: rgb(39, 89, 255);
     border:none;
     border-radius:4px;
     margin-left: auto;
+    margin-bottom: 10px;
     &:active
     {
         box-shadow: 0 0 0 1px rgb(201, 201, 201); /* Цвет тени и размер тени (включая радиус углов) */
     }
+}
+&__done
+{
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(14, 155, 33);
+    color:white;
+    border:none;
+    border-radius:4px;
+    margin-left: auto;
+ 
+    &:active
+    {
+        box-shadow: 0 0 0 1px rgb(201, 201, 201); /* Цвет тени и размер тени (включая радиус углов) */
+    }
+}
+&__finished 
+{
+    & h2 
+    {
+        text-decoration: line-through;
+    }
+    & p 
+    {
+        text-decoration: line-through;
+    }
+    opacity: 0.7;
+    background-color: rgb(212, 212, 212);
 }
 &__title 
 {
